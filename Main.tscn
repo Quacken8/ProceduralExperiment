@@ -19,5 +19,17 @@ offset_bottom = 59.0
 position = Vector2(182.5, 29.5)
 shape = SubResource("RectangleShape2D_78phq")
 
+[node name="ground2" type="StaticBody2D" parent="."]
+position = Vector2(72, 514)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="ground2"]
+offset_right = 364.0
+offset_bottom = 59.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground2"]
+position = Vector2(182.5, 29.5)
+shape = SubResource("RectangleShape2D_78phq")
+
 [node name="Character" parent="." instance=ExtResource("1_b03l7")]
 position = Vector2(576, 281)

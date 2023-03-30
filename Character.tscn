@@ -23,13 +23,20 @@ offset_right = 20.0
 offset_bottom = 20.0
 metadata/_edit_use_anchors_ = true
 
+[node name="HipJoint" type="PinJoint2D" parent="."]
+position = Vector2(0, 17)
+node_a = NodePath("..")
+node_b = NodePath("../UpperLeg")
+
+[node name="KneeJoint" type="PinJoint2D" parent="."]
+position = Vector2(0, 55)
+node_a = NodePath("../UpperLeg")
+node_b = NodePath("../UpperLeg/LowerLeg")
+
 [node name="UpperLeg" type="CharacterBody2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, -6)
 collision_layer = 2
 script = ExtResource("2_j0phn")
-f = 0.076
-z = 0.076
-r = 0.133
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="UpperLeg"]
@@ -42,3 +49,28 @@ color = Color(1, 0.141176, 1, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpperLeg"]
 position = Vector2(0.5, 40.5)
 shape = SubResource("RectangleShape2D_4f0pw")
+
+[node name="LowerLeg" type="CharacterBody2D" parent="UpperLeg"]
+position = Vector2(0, 39)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="UpperLeg/LowerLeg"]
+offset_left = -5.0
+offset_top = 20.0
+offset_right = 6.0
+offset_bottom = 61.0
+color = Color(1, 0.435294, 0.211765, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperLeg/LowerLeg"]
+position = Vector2(0.5, 40.5)
+shape = SubResource("RectangleShape2D_4f0pw")
+
+[node name="Foot" type="Node2D" parent="UpperLeg/LowerLeg"]
+position = Vector2(0, 61)
+
+[node name="ColorRect" type="ColorRect" parent="UpperLeg/LowerLeg/Foot"]
+offset_left = -5.0
+offset_top = -3.0
+offset_right = 6.0
+color = Color(0, 0, 0, 1)
